@@ -9,8 +9,10 @@
       listen web
           mode http
           bind *:80
-          default-server port 80
-          server kibana1 {{listener_address}} check
+          default-server port 80          
+        {% for server in listener_address %}
+        server {{ server.name }} {{ server.ip }}:{{ server.port }} check
+        {% endfor %}
 
 - import_tasks: tasks/ntp.yml
 - import_tasks: tasks/monit.yml

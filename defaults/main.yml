@@ -8,4 +8,7 @@ packages:
 vmid_path: /etc/unique_id
 vmid_fetch_dir: /tmp
 
-listener_address: 0.0.0.0:80
+listener_address: 
+  - name: srv1
+    ip: 0.0.0.0
+    port: 80
