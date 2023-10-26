@@ -1,0 +1,11 @@
+ntp_server: time.google.com
+
+packages:
+  - ntp
+  - net-tools
+  - monit
+
+vmid_path: /etc/unique_id
+vmid_fetch_dir: /tmp
+
+listener_address: 0.0.0.0:80

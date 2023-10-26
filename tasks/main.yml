@@ -1,0 +1,22 @@
+---
+- import_tasks: tasks/packages.yml
+
+- name: Include HAProxy Role
+  include_role:
+    name: entercloudsuite.haproxy
+  vars:
+    haproxy_conf: |
+      listen web
+          mode http
+          bind *:80
+          default-server port 80
+          server kibana1 {{listener_address}} check
+
+- import_tasks: tasks/ntp.yml
+- import_tasks: tasks/monit.yml
+- import_tasks: tasks/get_id.yml
+   
+
+   
+
+    
